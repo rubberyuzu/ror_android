@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20141202135104) do
     t.string   "title"
     t.string   "content"
     t.integer  "user_id"
-    t.integer  "voteable_id"
-    t.string   "voteable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,8 +32,6 @@ ActiveRecord::Schema.define(version: 20141202135104) do
     t.string   "content"
     t.integer  "user_id"
     t.integer  "comment_id"
-    t.integer  "voteable_id"
-    t.string   "voteable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,6 +44,8 @@ ActiveRecord::Schema.define(version: 20141202135104) do
   end
 
   create_table "votes", force: true do |t|
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

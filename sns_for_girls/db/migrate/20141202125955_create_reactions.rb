@@ -4,7 +4,7 @@ class CreateReactions < ActiveRecord::Migration
     	t.string :content
     	t.belongs_to :user
     	t.belongs_to :comment
-    	t.references :voteable, polymorphic: true
+    	
       t.timestamps
     end
   end
