@@ -1,0 +1,16 @@
+<h1>creating a new user page</h1>
+
+<%= form_for @new_user, url:{:action=>"create", :controller=>"users"} do |f|%>
+		<span style="float:left;"><%= f.text_area :name%></span>
+		<span style="float:left;"><%= f.text_area :email%></span>
+		<p> Password:</br> <%= f.password_field :password%></p>
+    <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+		<span style="float:left; height:30px;"><%= f.submit "submit"%></span>
+<%end%>
+<% if @new_user.errors.any? %>
+    <ul>
+    <% for message_error in @user.errors.full_messages %>
+      <li>* <%= message_error %></li>
+    <% end %>
+    </ul>
+<% end %>
