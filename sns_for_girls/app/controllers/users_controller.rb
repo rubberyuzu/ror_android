@@ -3,11 +3,11 @@ class UsersController < ApplicationController
 		@new_user = User.new
 	end
 	def create
-		salt = BCrypt::Engine.generate_salt
-		encrypted_password = BCrypt::Engine.hash_secret(params[:user][:password], salt)
-
 		User.create(name: params[:user][:name],
 								email: params[:user][:email],
-								password: encrypted_password)
+								password: params[:user][:password])
+	end
+	def index
+		@users_list = User.all
 	end
 end

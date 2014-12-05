@@ -1,0 +1,6 @@
+<%= form_for @comment, url:{:action=>"create", :controller=>"comments"} do |f|%>
+	<span style="float:left;"><%= f.hidden_field :user_id, :value => @user_id %></span>
+		<p>title</p><span style="float:left;"><%= f.text_area :title%></span>
+		<p>content</p><span style="float:left;"><%= f.text_area :content%></span>
+		<span style="float:left; height:30px;"><%= f.submit "submit"%></span>
+<%end%>

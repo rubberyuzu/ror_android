@@ -1,4 +1,13 @@
 <h1>Lovely home</h1>
 
-
+<% if !logged_in? %>
 <p><%= link_to "New User", new_user_path %></p>
+<p><%= link_to "login", login_path %></p>
+<% else %>
+<p>Hello <%=@user.name%></p>
+<p><%= button_to "logout", {:controller => :sessions,:action=> :destroy}, :method => :delete %></p>
+<p><%= button_to "Shoot!!!", "/users/#{@user.id}/comments/new", {:method => :get,:controller=> :comments, :action => :new, :user_id => @user.id} %></p>
+<p><%= button_to "your list", "/users/#{@user.id}/comments", {:method => :get,:controller=> :comments, :action => :index, :user_id => @user.id} %></p>
+<p><%= button_to "user list", "/users", {:method => :get,:controller=> :users, :action => :index, :user_id => @user.id} %></p>
+<% end %>
+
