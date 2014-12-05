@@ -1,0 +1,3 @@
+<%=@users_list.each do |user|%>
+	<p><%= link_to "#{user.name}", "/users/#{user.id}/comments",{:method=>:get, :controller=>:users, :action =>:index, :user_id=>user.id} %></p>
+<%end%>
