@@ -13,6 +13,11 @@ class CommentsController < ApplicationController
      :user_id => user.id
 	end
 
+	def destroy
+		comment = User.find(params[:user_id]).comments(params[:comment_id])
+		comment.destroy
+	end
+
 	def index
 		user = User.find(params[:user_id])
 		@comments_list = user.comments
